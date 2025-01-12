@@ -55,6 +55,11 @@ class SecretTag(BaseModel):
     name: str
     color: Optional[str] = None
 
+@dataclass
+class SecretMetadata(BaseModel):
+    """Model for secret metadata"""
+    key: str
+    value: str
 
 @dataclass
 class BaseSecret(BaseModel):
@@ -73,7 +78,8 @@ class BaseSecret(BaseModel):
     secretReminderNote: Optional[str] = None
     secretReminderRepeatDays: Optional[int] = None
     skipMultilineEncoding: Optional[bool] = False
-    secretMetadata: Optional[Any] = None
+    metadata: Optional[Any] = None
+    secretMetadata: List[SecretMetadata] = field(default_factory=list)
     secretPath: Optional[str] = None
     tags: List[SecretTag] = field(default_factory=list)
 
