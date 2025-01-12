@@ -73,7 +73,7 @@ class BaseSecret(BaseModel):
     secretReminderNote: Optional[str] = None
     secretReminderRepeatDays: Optional[int] = None
     skipMultilineEncoding: Optional[bool] = False
-    metadata: Optional[Any] = None
+    secretMetadata: Optional[Any] = None
     secretPath: Optional[str] = None
     tags: List[SecretTag] = field(default_factory=list)
 
